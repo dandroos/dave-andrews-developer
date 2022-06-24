@@ -1,0 +1,2 @@
+export const SET_IS_MOBILE = "SET_IS_MOBILE"
+export const SET_SHOW_MOBILE_MENU = "SET_SHOW_MOBILE_MENU"
