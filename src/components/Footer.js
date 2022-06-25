@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Container, Typography } from "@mui/material"
 
 import React from "react"
 
@@ -13,9 +13,11 @@ const Footer = () => {
   }
   return (
     <Box>
-      <Typography variant="caption">
-        All content &copy; {getCopyrightYear()} Dave Andrews
-      </Typography>
+      <Container>
+        <Typography variant="caption">
+          All content &copy; {getCopyrightYear()} Dave Andrews
+        </Typography>
+      </Container>
     </Box>
   )
 }

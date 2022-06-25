@@ -63,7 +63,7 @@ export const theme = responsiveFontSizes(
       },
       MuiButton: {
         defaultProps: {
-          // variant: "contained",
+          variant: "outlined",
         },
       },
       MuiTextField: {

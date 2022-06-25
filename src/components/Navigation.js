@@ -6,17 +6,19 @@ import {
   Link as MLink,
   Toolbar,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material"
+import { Facebook, Menu } from "mdi-material-ui"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-import { Menu } from "mdi-material-ui"
 import MobileMenu from "./MobileMenu"
 import React from "react"
 import { connect } from "react-redux"
 import { nav } from "../siteLinks"
 import { setShowMobileMenu } from "../redux/actions"
 
-const Navigation = ({ dispatch, isMobile }) => {
+const Navigation = ({ dispatch, isMobile, atTop }) => {
   const { title } = useStaticQuery(graphql`
     {
       site {
@@ -27,11 +29,23 @@ const Navigation = ({ dispatch, isMobile }) => {
     }
   `).site.siteMetadata
 
+  const lessThanLarge = useMediaQuery(useTheme().breakpoints.down("lg"))
+
   return (
     <>
       {isMobile && <MobileMenu />}
-      <AppBar variant="outlined">
-        <Toolbar sx={{ my: isMobile ? 0.5 : 1, mx: isMobile ? undefined : 10 }}>
+      <AppBar
+        variant="outlined"
+        elevation={0}
+        color={atTop ? "transparent" : undefined}
+        sx={{ border: atTop ? "none" : undefined }}
+      >
+        <Toolbar
+          sx={{
+            my: isMobile ? 0.5 : atTop ? 1 : 0.4,
+            mx: isMobile ? undefined : lessThanLarge ? undefined : 10,
+          }}
+        >
           <MLink
             component={Link}
             to="/"
@@ -48,14 +62,30 @@ const Navigation = ({ dispatch, isMobile }) => {
             <>
               {nav.internal.map((i, ind) => (
                 <Button
+                  key={ind}
+                  variant="text"
                   component={Link}
                   to={i.url}
                   color="inherit"
-                  sx={{ ml: ind !== 0 ? 4 : 0 }}
+                  sx={{ mr: 4 }}
+                  activeStyle={{ fontWeight: "bold" }}
                 >
                   {i.label}
                 </Button>
               ))}
+              {nav.external.map((i, ind) => {
+                return (
+                  <IconButton
+                    color="inherit"
+                    edge={ind === nav.external.length - 1 ? "end" : undefined}
+                    sx={{
+                      ml: ind !== 0 ? 2 : undefined,
+                    }}
+                  >
+                    <i.Icon />
+                  </IconButton>
+                )
+              })}
             </>
           ) : (
             <IconButton
@@ -74,6 +104,7 @@ const Navigation = ({ dispatch, isMobile }) => {
 
 const stp = (s) => ({
   isMobile: s.isMobile,
+  atTop: s.atTop,
 })
 
 export default connect(stp)(Navigation)
