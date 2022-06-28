@@ -2,7 +2,7 @@ import { SET_AT_TOP, SET_IS_MOBILE, SET_SHOW_MOBILE_MENU } from "./types"
 
 const initialState = {
   isMobile: null,
-  showMobileMenu: true, //change to false
+  showMobileMenu: false, //change to false
   atTop: null,
 }
 

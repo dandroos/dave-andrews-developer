@@ -12,9 +12,9 @@ const Footer = () => {
     }
   }
   return (
-    <Box>
+    <Box py={2}>
       <Container>
-        <Typography variant="caption">
+        <Typography variant="caption" align="center">
           All content &copy; {getCopyrightYear()} Dave Andrews
         </Typography>
       </Container>

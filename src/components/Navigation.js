@@ -18,7 +18,7 @@ import { connect } from "react-redux"
 import { nav } from "../siteLinks"
 import { setShowMobileMenu } from "../redux/actions"
 
-const Navigation = ({ dispatch, isMobile, atTop }) => {
+const Navigation = ({ dispatch, isMobile, home, atTop }) => {
   const { title } = useStaticQuery(graphql`
     {
       site {
@@ -30,7 +30,7 @@ const Navigation = ({ dispatch, isMobile, atTop }) => {
   `).site.siteMetadata
 
   const lessThanLarge = useMediaQuery(useTheme().breakpoints.down("lg"))
-
+  const theme = useTheme()
   return (
     <>
       {isMobile && <MobileMenu />}
@@ -38,7 +38,13 @@ const Navigation = ({ dispatch, isMobile, atTop }) => {
         variant="outlined"
         elevation={0}
         color={atTop ? "transparent" : undefined}
-        sx={{ border: atTop ? "none" : undefined }}
+        sx={{
+          background: home
+            ? `linear-gradient(to top, transparent, ${theme.palette.common.black} )`
+            : undefined,
+          color: home ? theme.palette.common.white : undefined,
+          border: atTop ? "none" : undefined,
+        }}
       >
         <Toolbar
           sx={{
