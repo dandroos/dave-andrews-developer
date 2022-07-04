@@ -1,13 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { Box, Toolbar, useMediaQuery, useTheme } from "@mui/material"
 import React, { useEffect, useState } from "react"
-import { setAtTop, setIsMobile } from "../redux/actions"
+import { setAtTop, setIsMobile, setSiteReady } from "../redux/actions"
 
+import FontFaceObserver from "fontfaceobserver"
 import Footer from "./Footer"
 import Navigation from "./Navigation"
 import { connect } from "react-redux"
+import style from "../../style"
 
-const Layout = ({ dispatch, location, children }) => {
+const Layout = ({ dispatch, location, children, ready }) => {
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
 
   useEffect(() => {
@@ -16,6 +18,13 @@ const Layout = ({ dispatch, location, children }) => {
   }, [isMobile])
 
   useEffect(() => {
+    const loadFont = () => {
+      const font = new FontFaceObserver(style.typography.fontFamily)
+      font.load().then(() => {
+        dispatch(setSiteReady(true))
+      }, loadFont)
+    }
+    loadFont()
     document.addEventListener("scroll", () => {
       dispatch(setAtTop(window.scrollY === 0))
     })
@@ -23,17 +32,12 @@ const Layout = ({ dispatch, location, children }) => {
     //eslint-disable-next-line
   }, [])
 
-  const [homeNav, setHomeNav] = useState(null)
   const [homeLoading, setHomeLoading] = useState(true)
   const [homeLoaded, setHomeLoaded] = useState(false)
 
-  return (
+  return ready ? (
     <>
-      <Navigation
-        home={homeNav}
-        homeLoaded={homeLoaded}
-        homeLoading={homeLoading}
-      />
+      <Navigation homeLoaded={homeLoaded} homeLoading={homeLoading} />
       <Box
         display="flex"
         flexDirection="column"
@@ -48,7 +52,6 @@ const Layout = ({ dispatch, location, children }) => {
             animate={{ opacity: 1, translateX: 0 }}
             exit={{ opacity: 0, translateX: 1000 }}
             onAnimationStart={(e) => {
-              setHomeNav(false)
               setHomeLoaded(false)
               if (location.pathname === "/" && e.opacity !== 0) {
                 setHomeLoading(true)
@@ -58,10 +61,7 @@ const Layout = ({ dispatch, location, children }) => {
             }}
             onAnimationComplete={(e) => {
               if (location.pathname === "/" && e.opacity === 1) {
-                setHomeNav(true)
                 setHomeLoaded(true)
-              } else {
-                setHomeNav(false)
               }
             }}
           >
@@ -82,7 +82,11 @@ const Layout = ({ dispatch, location, children }) => {
         </AnimatePresence>
       </Box>
     </>
-  )
+  ) : null
 }
 
-export default connect()(Layout)
+const stp = (s) => ({
+  ready: s.siteReady,
+})
+
+export default connect(stp)(Layout)

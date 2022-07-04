@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-emotion",
     "gatsby-plugin-redux",
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-image`,
 
     // NETLIFY CMS
