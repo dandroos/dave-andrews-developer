@@ -13,6 +13,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import React from "react"
 import Seo from "../components/seo"
+import WindowHeightCalculator from "../components/WindowHeightCalculator"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { getImage } from "gatsby-plugin-image"
@@ -41,7 +42,8 @@ const Index = ({ isMobile }) => {
     <>
       <Seo title="" />
       <Box
-        height="100vh"
+        // height="100vh"
+        height={isMobile ? WindowHeightCalculator() : "100vh"}
         width="100%"
         component={BackgroundImage}
         // alt="Dave Andrews"

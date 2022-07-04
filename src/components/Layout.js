@@ -6,6 +6,7 @@ import { setAtTop, setIsMobile, setSiteReady } from "../redux/actions"
 import FontFaceObserver from "fontfaceobserver"
 import Footer from "./Footer"
 import Navigation from "./Navigation"
+import WindowHeightCalculator from "./WindowHeightCalculator"
 import { connect } from "react-redux"
 import style from "../../style"
 
@@ -41,7 +42,8 @@ const Layout = ({ dispatch, location, children, ready }) => {
       <Box
         display="flex"
         flexDirection="column"
-        minHeight="100vh"
+        minHeight={isMobile ? WindowHeightCalculator() : "100vh"}
+        // minHeight="100vh"
         justifyContent="space-between"
         overflow="hidden"
       >

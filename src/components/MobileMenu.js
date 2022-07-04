@@ -21,6 +21,7 @@ import { StaticImage, getImage } from "gatsby-plugin-image"
 import BackgroundImage from "gatsby-background-image"
 import { Close } from "mdi-material-ui"
 import React from "react"
+import WindowHeightCalculator from "./WindowHeightCalculator"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { nav } from "../siteLinks"
@@ -70,7 +71,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
         <Box
           display="flex"
           flexDirection="column"
-          minHeight="100vh"
+          minHeight={WindowHeightCalculator()}
           justifyContent="space-between"
           // pb={6}
         >

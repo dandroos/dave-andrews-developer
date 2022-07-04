@@ -134,7 +134,7 @@ const Contact = () => {
             <Button
               fullWidth
               sx={{ flexDirection: "column" }}
-              href="tel:123456789"
+              href="tel:34658858572"
               target="_blank"
             >
               <Icon sx={{ height: "1.8rem" }}>
@@ -142,7 +142,7 @@ const Contact = () => {
               </Icon>
               <ListItemText
                 primary="Phone"
-                secondary="123 456 789"
+                secondary="+(34) 658 858 572"
                 sx={{ textAlign: "center" }}
               />
             </Button>
@@ -151,7 +151,7 @@ const Contact = () => {
             <Button
               fullWidth
               sx={{ flexDirection: "column" }}
-              href="https://wa.me/123456789"
+              href="https://wa.me/34658858572"
               target="_blank"
             >
               <Icon sx={{ height: "1.8rem" }}>
@@ -159,7 +159,7 @@ const Contact = () => {
               </Icon>
               <ListItemText
                 primary="WhatsApp"
-                secondary="123 456 789"
+                secondary="+(34) 658 858 572"
                 sx={{ textAlign: "center" }}
               />
             </Button>
