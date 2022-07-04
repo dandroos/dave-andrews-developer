@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { Box, Container, Toolbar, useMediaQuery, useTheme } from "@mui/material"
+import { Box, Toolbar, useMediaQuery, useTheme } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import { setAtTop, setIsMobile } from "../redux/actions"
 
@@ -20,13 +20,20 @@ const Layout = ({ dispatch, location, children }) => {
       dispatch(setAtTop(window.scrollY === 0))
     })
     dispatch(setAtTop(window.scrollY === 0))
+    //eslint-disable-next-line
   }, [])
 
   const [homeNav, setHomeNav] = useState(null)
+  const [homeLoading, setHomeLoading] = useState(true)
+  const [homeLoaded, setHomeLoaded] = useState(false)
 
   return (
     <>
-      <Navigation home={homeNav} />
+      <Navigation
+        home={homeNav}
+        homeLoaded={homeLoaded}
+        homeLoading={homeLoading}
+      />
       <Box
         display="flex"
         flexDirection="column"
@@ -35,18 +42,24 @@ const Layout = ({ dispatch, location, children }) => {
         overflow="hidden"
       >
         <AnimatePresence exitBeforeEnter>
-          <Box
+          <motion.div
             key={location.pathname}
-            component={motion.div}
             initial={{ opacity: 0, translateX: -1000 }}
             animate={{ opacity: 1, translateX: 0 }}
             exit={{ opacity: 0, translateX: 1000 }}
-            onAnimationStart={() => {
+            onAnimationStart={(e) => {
               setHomeNav(false)
+              setHomeLoaded(false)
+              if (location.pathname === "/" && e.opacity !== 0) {
+                setHomeLoading(true)
+              } else {
+                setHomeLoading(false)
+              }
             }}
             onAnimationComplete={(e) => {
               if (location.pathname === "/" && e.opacity === 1) {
                 setHomeNav(true)
+                setHomeLoaded(true)
               } else {
                 setHomeNav(false)
               }
@@ -57,8 +70,14 @@ const Layout = ({ dispatch, location, children }) => {
                 sx={{ my: isMobile ? 0.5 : 1, mx: isMobile ? undefined : 10 }}
               />
             )}
-            <Box component="main">{children}</Box>
-          </Box>
+            <Box
+              component="main"
+              py={location.pathname !== "/" ? 2 : 0}
+              pb={location.pathname !== "/" ? 4 : 0}
+            >
+              {children}
+            </Box>
+          </motion.div>
           {location.pathname !== "/" && <Footer />}
         </AnimatePresence>
       </Box>

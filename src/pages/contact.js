@@ -128,12 +128,11 @@ const Contact = () => {
       <Box mt={3}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            You can also contact me in the following ways...
+            You can also contact me using the following methods...
           </Grid>
           <Grid item xs={12} md={6}>
             <Button
               fullWidth
-              variant="outlined"
               sx={{ flexDirection: "column" }}
               href="tel:123456789"
               target="_blank"
@@ -151,7 +150,6 @@ const Contact = () => {
           <Grid item xs={12} md={6}>
             <Button
               fullWidth
-              variant="outlined"
               sx={{ flexDirection: "column" }}
               href="https://wa.me/123456789"
               target="_blank"

@@ -2,15 +2,17 @@ import {
   Box,
   Container,
   Dialog,
-  DialogContent,
   Divider,
   Fab,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
+  ListSubheader,
   Link as MLink,
   Portal,
   Slide,
+  Typography,
   useTheme,
 } from "@mui/material"
 import { Link, graphql, useStaticQuery } from "gatsby"
@@ -30,6 +32,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
       title: site {
         siteMetadata {
           title
+          jobTitle
         }
       }
       img: file(sourceInstanceName: { eq: "images" }, name: { eq: "dave1" }) {
@@ -44,6 +47,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
   `)
 
   const title = data.title.siteMetadata.title
+  const jobTitle = data.title.siteMetadata.jobTitle
   const img = getImage(data.img)
 
   const bgImg = convertToBgImage(img)
@@ -87,26 +91,52 @@ const MobileMenu = ({ dispatch, isOpen }) => {
               }}
             >
               <Container>
-                <MLink
-                  variant="h4"
-                  variantMapping={{ h4: "p" }}
-                  component={Link}
-                  to="/"
-                  underline="none"
-                  color="inherit"
-                  onClick={handleClose}
-                >
-                  {title}
-                </MLink>
+                <Box display="flex">
+                  <StaticImage
+                    src="../images/logo.png"
+                    alt="Dave Andrews logo"
+                    width={50}
+                    placeholder="blurred"
+                    // width="100%"
+                  />
+                  <Box ml={1}>
+                    <MLink
+                      variant="h4"
+                      variantMapping={{ h4: "p" }}
+                      component={Link}
+                      to="/"
+                      underline="none"
+                      color="inherit"
+                      onClick={handleClose}
+                    >
+                      {title}
+                      <Typography
+                        variant="inherit"
+                        color="primary.light"
+                        display="block"
+                      >
+                        {jobTitle}
+                      </Typography>
+                    </MLink>
+                  </Box>
+                </Box>
               </Container>
             </Box>
           </Box>
           <List disablePadding>
+            <ListSubheader
+              sx={{
+                lineHeight: 2,
+                backgroundColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.contrastText,
+              }}
+            >
+              Site Navigation
+            </ListSubheader>
             {nav.internal.map((i, ind) => (
-              <>
+              <React.Fragment key={ind}>
                 {ind === 0 && <Divider />}
                 <ListItem
-                  key={ind}
                   button
                   divider
                   component={Link}
@@ -114,6 +144,9 @@ const MobileMenu = ({ dispatch, isOpen }) => {
                   onClick={handleClose}
                   activeStyle={{ fontWeight: "bold" }}
                 >
+                  <ListItemIcon>
+                    <i.Icon />
+                  </ListItemIcon>
                   <ListItemText
                     primaryTypographyProps={{
                       variant: "button",
@@ -122,7 +155,35 @@ const MobileMenu = ({ dispatch, isOpen }) => {
                     primary={i.label}
                   />
                 </ListItem>
-              </>
+              </React.Fragment>
+            ))}
+            <ListSubheader
+              sx={{
+                lineHeight: 2,
+                backgroundColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.contrastText,
+              }}
+            >
+              Social
+            </ListSubheader>
+            {nav.external.map((i, ind) => (
+              <ListItem
+                button
+                divider
+                key={ind}
+                component="a"
+                href={i.url}
+                target="_blank"
+                onClick={handleClose}
+              >
+                <ListItemIcon>
+                  <i.Icon />
+                </ListItemIcon>
+                <ListItemText
+                  primary={i.label}
+                  primaryTypographyProps={{ variant: "button" }}
+                />
+              </ListItem>
             ))}
           </List>
         </Box>

@@ -31,6 +31,9 @@ export const theme = responsiveFontSizes(
         main: "#ea4335",
       },
     },
+    shape: {
+      borderRadius: 0,
+    },
     typography: {
       fontFamily: style.typography.fontFamily,
       lead: {
@@ -63,7 +66,16 @@ export const theme = responsiveFontSizes(
       },
       MuiButton: {
         defaultProps: {
-          variant: "outlined",
+          variant: "contained",
+          color: "secondary",
+        },
+      },
+      MuiListSubheader: {
+        defaultProps: {
+          sx: {
+            background: style.palette.secondary,
+            color: style.palette.light,
+          },
         },
       },
       MuiTextField: {

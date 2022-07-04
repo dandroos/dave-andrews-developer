@@ -11,6 +11,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
+import ogImage from "../images/dd-og.png"
 
 function Seo({ description, meta, title }) {
   const { site } = useStaticQuery(
@@ -19,6 +20,7 @@ function Seo({ description, meta, title }) {
         site {
           siteMetadata {
             title
+            jobTitle
             description
             author
             siteUrl
@@ -29,7 +31,7 @@ function Seo({ description, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const defaultTitle = `${site.siteMetadata?.title} (${site.siteMetadata.jobTitle}) `
   return (
     <Helmet
       htmlAttributes={{
@@ -53,10 +55,10 @@ function Seo({ description, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
-        // {
-        //   property: `og:image`,
-        //   content: site.siteMetadata.siteUrl + ogImage,
-        // },
+        {
+          property: `og:image`,
+          content: site.siteMetadata.siteUrl + ogImage,
+        },
         {
           name: `twitter:card`,
           content: `summary`,

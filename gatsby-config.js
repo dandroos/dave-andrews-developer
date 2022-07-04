@@ -2,7 +2,9 @@ const style = require("./style")
 
 module.exports = {
   siteMetadata: {
-    title: `Dave Andrews | Developer`,
+    title: `Dave Andrews`,
+    jobTitle: `Web/App Developer`,
+    shortJobTitle: "Developer",
     description: `Dave Andrews is a professional web and application developer.`,
     lang: "en",
     author: `@dandrewsdeveloper`,
@@ -97,7 +99,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: style.palette.main,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-circle.png`, // This path is relative to the root of the site.
       },
     },
   ],
