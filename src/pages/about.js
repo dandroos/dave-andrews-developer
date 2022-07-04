@@ -29,9 +29,9 @@ const About = () => {
             <strong>CSS3</strong>,{` `}
             <strong>JavaScript</strong>, <strong>Java</strong>,{" "}
             <strong>PHP</strong>, <strong>Python</strong> and{" "}
-            <strong>C#</strong>. I love the almost inifinite opportunities to
-            learn that app development opens up to me. I'm taking my first
-            tentative steps into game development right now and I'm enjoying the
+            <strong>C#</strong>. I love the almost infinite opportunities to
+            learn that web/app development opens up to me. I'm taking my first
+            steps into game development right now and I'm enjoying the
             challenge!
           </Typography>
           <Typography>

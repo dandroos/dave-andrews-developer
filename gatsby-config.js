@@ -8,7 +8,7 @@ module.exports = {
     description: `Dave Andrews is a professional web and application developer.`,
     lang: "en",
     author: `@dandrewsdeveloper`,
-    siteUrl: `https://daveandrewsdev.com/`,
+    siteUrl: `https://daveandrewsdevs.netlify.app/`,
   },
   plugins: [
     "gatsby-plugin-site-wrapper",
