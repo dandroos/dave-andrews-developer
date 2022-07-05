@@ -11,8 +11,11 @@ import { Phone, Send, Whatsapp } from "mdi-material-ui"
 import React, { useState } from "react"
 
 import PageWrapper from "../components/PageWrapper"
+import Seo from "../components/seo"
+import { connect } from "react-redux"
+import { setToast } from "../redux/actions"
 
-const Contact = () => {
+const Contact = ({ dispatch }) => {
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -47,13 +50,13 @@ const Contact = () => {
       }),
     })
       .then(() => {
-        // dispatch(
-        //   setToast({
-        //     open: true,
-        //     msg: "Thanks! I'll get back to you as soon as possible.",
-        //     severity: "success",
-        //   })
-        // )
+        dispatch(
+          setToast({
+            open: true,
+            msg: "Thanks! I'll get back to you as soon as possible.",
+            severity: "success",
+          })
+        )
         setFields({
           name: "",
           email: "",
@@ -62,17 +65,18 @@ const Contact = () => {
         })
       })
       .catch(() => {
-        // dispatch(
-        //   setToast({
-        //     open: true,
-        //     msg: "Hmmm... Something went wrong. Please try again in a few moments.",
-        //     severity: "error",
-        //   })
-        // )
+        dispatch(
+          setToast({
+            open: true,
+            msg: "Hmmm... Something went wrong. Please try again in a few moments.",
+            severity: "error",
+          })
+        )
       })
   }
   return (
     <PageWrapper title="Contact">
+      <Seo title="Contact" />
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -170,4 +174,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default connect()(Contact)

@@ -3,6 +3,7 @@ import {
   SET_IS_MOBILE,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
+  SET_TOAST,
 } from "./types"
 
 export const setIsMobile = (payload) => ({
@@ -22,5 +23,10 @@ export const setAtTop = (payload) => ({
 
 export const setSiteReady = (payload) => ({
   type: SET_SITE_READY,
+  payload,
+})
+
+export const setToast = (payload) => ({
+  type: SET_TOAST,
   payload,
 })

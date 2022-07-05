@@ -10,6 +10,11 @@ const initialState = {
   showMobileMenu: false, //change to false
   atTop: null,
   siteReady: false,
+  toast: {
+    open: false,
+    severity: null,
+    msg: "",
+  },
 }
 
 export const reducer = (state = initialState, { type, payload }) => {

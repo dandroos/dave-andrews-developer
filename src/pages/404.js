@@ -1,13 +1,16 @@
 import * as React from "react"
 
+import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
+import { Typography } from "@mui/material"
 
 const NotFoundPage = () => (
-  <>
+  <PageWrapper title="No page here!">
     <Seo title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </>
+    <Typography>
+      This isn't the page you're looking for! Try a different link.
+    </Typography>
+  </PageWrapper>
 )
 
 export default NotFoundPage

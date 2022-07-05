@@ -6,6 +6,7 @@ import { setAtTop, setIsMobile, setSiteReady } from "../redux/actions"
 import FontFaceObserver from "fontfaceobserver"
 import Footer from "./Footer"
 import Navigation from "./Navigation"
+import Toast from "./Toast"
 import WindowHeightCalculator from "./WindowHeightCalculator"
 import { connect } from "react-redux"
 import style from "../../style"
@@ -38,6 +39,7 @@ const Layout = ({ dispatch, location, children, ready }) => {
 
   return ready ? (
     <>
+      <Toast />
       <Navigation homeLoaded={homeLoaded} homeLoading={homeLoading} />
       <Box
         display="flex"
