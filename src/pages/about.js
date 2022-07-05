@@ -28,50 +28,18 @@ const About = () => {
             learnt how to code using <strong>HTML5</strong>,{" "}
             <strong>CSS3</strong>,{` `}
             <strong>JavaScript</strong>, <strong>Java</strong>,{" "}
-            <strong>PHP</strong>, <strong>Python</strong> and{" "}
-            <strong>C#</strong>. I love the almost infinite opportunities to
+            <strong>PHP</strong>, <strong>Node</strong>, <strong>Python</strong>{" "}
+            and <strong>C#</strong>. I love the almost infinite opportunities to
             learn that web/app development opens up to me. I'm taking my first
             steps into game development right now and I'm enjoying the
             challenge!
           </Typography>
           <Typography>
-            When I'm not working, I enjoy gaming (Xbox baby!), photography,
-            cycling and volunteering at my local dog rescue association. As an
-            amateur musician, I also love to play the piano and drums and I
-            occasionally make chiptune (8 bit) versions of music by Bach and
-            Vivaldi.
+            When I'm not working, I enjoy gaming (Xbox baby!), photography, and
+            cycling. As an amateur musician, I also love to play the piano and
+            drums and I occasionally make chiptune (8 bit) versions of music by
+            Bach and Vivaldi.
           </Typography>
-          {/* <Typography variant="h4" gutterBottom>
-            My Links
-          </Typography>
-          <Typography gutterBottom>
-            You can find me on various platforms. Some I use more than others
-            and if you go in with low expectations, I'm not a terrible 'follow'!
-          </Typography>
-          <Grid container spacing={0.35}>
-            <ExtraLink
-              title="Twitter"
-              Icon={Twitter}
-              url="https://twitter.com"
-            />
-            <ExtraLink
-              title="Instagram"
-              Icon={Instagram}
-              url="https://instagram.com"
-            />
-            <ExtraLink
-              title="Facebook"
-              Icon={Facebook}
-              url="https://facebook.com"
-            />
-            <ExtraLink title="Twitch" Icon={Twitch} url="https://twitch.com" />
-            <ExtraLink
-              title="YouTube"
-              Icon={Youtube}
-              url="https://youtube.com"
-            />
-            <ExtraLink title="GitHub" Icon={Github} url="https://github.com" /> */}
-          {/* </Grid> */}
         </Grid>
         <Grid item xs={12} md={5}>
           <Carousel

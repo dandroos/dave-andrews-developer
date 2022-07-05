@@ -20,22 +20,38 @@ import { getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
 const Index = ({ isMobile }) => {
-  const img = convertToBgImage(
-    getImage(
-      useStaticQuery(graphql`
-        {
-          file(sourceInstanceName: { eq: "images" }, name: { eq: "dave1" }) {
-            childImageSharp {
-              gatsbyImageData(
-                quality: 95
-                placeholder: BLURRED
-                transformOptions: { grayscale: true, cropFocus: NORTH }
-              )
-            }
-          }
+  const query = useStaticQuery(graphql`
+    {
+      imgDesk: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "dave6" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(
+            quality: 95
+            placeholder: BLURRED
+            aspectRatio: 1.777
+            transformOptions: { grayscale: true, cropFocus: CENTER }
+          )
         }
-      `).file
-    )
+      }
+      imgMob: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "dave1" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(
+            quality: 95
+            placeholder: BLURRED
+            transformOptions: { grayscale: true, cropFocus: NORTH }
+          )
+        }
+      }
+    }
+  `)
+
+  const img = convertToBgImage(
+    getImage(isMobile ? query.imgMob : query.imgDesk)
   )
   const theme = useTheme()
   return (
@@ -46,9 +62,8 @@ const Index = ({ isMobile }) => {
         height={isMobile ? WindowHeightCalculator() : "100vh"}
         width="100%"
         component={BackgroundImage}
-        // alt="Dave Andrews"
         {...img}
-        style={{ backgroundPosition: !isMobile ? `0 -23rem` : `center 0` }}
+        style={{ backgroundPosition: !isMobile ? undefined : `center 0` }}
         display="flex"
         alignItems="center"
         justifyContent="center"

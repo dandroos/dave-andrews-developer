@@ -3,6 +3,7 @@ import {
   Information,
   Instagram,
   Phone,
+  Post,
   Twitter,
   Wrench,
 } from "mdi-material-ui"
@@ -13,6 +14,11 @@ export const nav = {
       label: "Home",
       url: "/",
       Icon: Home,
+    },
+    {
+      label: "Blog",
+      url: "/blog",
+      Icon: Post,
     },
     {
       label: "Services",

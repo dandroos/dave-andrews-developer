@@ -34,6 +34,15 @@ export const theme = responsiveFontSizes(
     shape: {
       borderRadius: 0,
     },
+    breakpoints: {
+      values: {
+        xl: 1536,
+        lg: 1200,
+        md: 975,
+        sm: 600,
+        xs: 0,
+      },
+    },
     typography: {
       fontFamily: style.typography.fontFamily,
       lead: {
