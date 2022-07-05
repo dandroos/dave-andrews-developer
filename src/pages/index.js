@@ -77,7 +77,7 @@ const Index = ({ isMobile, ready }) => {
             animate={{ opacity: 1, translateX: isMobile ? "-50%" : "0%" }}
             transition={{ delay: 0.75, duration: 1 }}
             bottom={isMobile ? 10 : 50}
-            left={isMobile ? "50%" : 50}
+            left={isMobile ? "50%" : 105}
             py={2.5}
             width={isMobile ? "90%" : "30%"}
             boxShadow={5}
