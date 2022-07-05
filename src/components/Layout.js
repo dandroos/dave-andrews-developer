@@ -39,7 +39,6 @@ const Layout = ({ dispatch, location, children, ready }) => {
 
   return ready ? (
     <>
-      <Toast />
       <Navigation homeLoaded={homeLoaded} homeLoading={homeLoading} />
       <Box
         display="flex"
@@ -49,6 +48,7 @@ const Layout = ({ dispatch, location, children, ready }) => {
         justifyContent="space-between"
         overflow="hidden"
       >
+        <Toast />
         <AnimatePresence exitBeforeEnter>
           <motion.div
             key={location.pathname}
