@@ -11,8 +11,8 @@ const initialState = {
   atTop: null,
   siteReady: false,
   toast: {
-    open: false,
-    severity: null,
+    open: true, //change to false
+    severity: "success",
     msg: "",
   },
 }
