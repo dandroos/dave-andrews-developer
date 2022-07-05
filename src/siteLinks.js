@@ -16,11 +16,6 @@ export const nav = {
       Icon: Home,
     },
     {
-      label: "Blog",
-      url: "/blog",
-      Icon: Post,
-    },
-    {
       label: "Services",
       url: "/services",
       Icon: Wrench,
@@ -29,6 +24,11 @@ export const nav = {
       label: "About me",
       url: "/about",
       Icon: Information,
+    },
+    {
+      label: "Blog",
+      url: "/blog",
+      Icon: Post,
     },
     {
       label: "Contact",

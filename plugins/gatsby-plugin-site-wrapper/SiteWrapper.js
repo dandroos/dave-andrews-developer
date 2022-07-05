@@ -8,6 +8,19 @@ import { typography } from "../../style"
 const SiteWrapper = ({ children }) => {
   return (
     <>
+      <form
+        name="contact"
+        action="#"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="name" />
+        <input type="hidden" name="email" />
+        <input type="hidden" name="tel" />
+        <input type="hidden" name="message" />
+      </form>
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
