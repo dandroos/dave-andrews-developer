@@ -13,7 +13,7 @@ import moment from "moment"
 const About = ({ ready }) => {
   return (
     <>
-      <Seo title="About me" />
+      <Seo title="About me" url="/about" />
       {ready && (
         <PageWrapper title="About me">
           <Grid container spacing={2}>

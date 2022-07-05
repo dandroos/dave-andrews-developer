@@ -76,7 +76,7 @@ const Contact = ({ dispatch, ready }) => {
   }
   return (
     <>
-      <Seo title="Contact" />
+      <Seo title="Contact" url="/contact" />
       {ready && (
         <PageWrapper title="Contact">
           <form onSubmit={handleSubmit}>

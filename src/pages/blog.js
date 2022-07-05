@@ -9,7 +9,7 @@ import { connect } from "react-redux"
 const Blog = ({ isMobile, ready }) => {
   return (
     <>
-      <Seo title="Blog" />
+      <Seo title="Blog" url="/blog" />
       {ready && (
         <PageWrapper title="Blog">
           {isMobile ? (

@@ -54,7 +54,7 @@ const Services = ({ ready }) => {
   )
   return (
     <>
-      <Seo title="Services" />
+      <Seo title="Services" url="/services" />
       {ready && (
         <PageWrapper title="Services">
           <StaticImage

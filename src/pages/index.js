@@ -56,7 +56,7 @@ const Index = ({ isMobile, ready }) => {
   const theme = useTheme()
   return (
     <>
-      <Seo title="" />
+      <Seo title="" url="" />
       {ready && (
         <Box
           // height="100vh"

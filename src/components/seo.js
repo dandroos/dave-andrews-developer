@@ -13,7 +13,7 @@ import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 import ogImage from "../images/dd-og.png"
 
-function Seo({ description, meta, title }) {
+function Seo({ meta, title, url }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,7 +30,7 @@ function Seo({ description, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = site.siteMetadata.description
   const defaultTitle = `${site.siteMetadata?.title} (${site.siteMetadata.jobTitle}) `
   return (
     <Helmet
@@ -47,6 +47,7 @@ function Seo({ description, meta, title }) {
           property: `og:title`,
           content: title ? `${title} | ${defaultTitle}` : defaultTitle,
         },
+        { property: `og:url`, content: site.siteMetadata.siteUrl + url },
         {
           property: `og:description`,
           content: metaDescription,
