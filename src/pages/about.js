@@ -17,17 +17,12 @@ const About = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={7}>
             <Typography paragraph>
-              I'm a{" "}
-              {(() => {
-                const i = moment(new Date(1982, 5, 27))
-                return moment(new Date()).diff(i, "years")
-              })()}
-              -year-old Englishman now living in Fuerteventura. I've loved
-              'messing around' with computers for as long as I can remember! I
-              started creating websites as a teenager for local bands when the
-              internet was in its relative infancy. Over the years since, I have
-              learnt how to code using <strong>HTML5</strong>,{" "}
-              <strong>CSS3</strong>,{` `}
+              I'm an Englishman in my forties now living in Fuerteventura. I've
+              loved 'messing around' with computers for as long as I can
+              remember! I started creating websites as a teenager for local
+              bands, when the internet was in its relative infancy. Over the
+              years since, I have learnt how to code using{" "}
+              <strong>HTML5</strong>, <strong>CSS3</strong>,{` `}
               <strong>JavaScript</strong>, <strong>Java</strong>,{" "}
               <strong>PHP</strong>, <strong>Node</strong>,{" "}
               <strong>Python</strong> and <strong>C#</strong>. I love the almost
