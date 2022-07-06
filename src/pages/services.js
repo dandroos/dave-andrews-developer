@@ -121,7 +121,7 @@ const Services = () => {
             />
             <Feature
               primary="Multilingual content"
-              secondary="Although you will need to provide the translations, I offer the best implementation of multilingual websites."
+              secondary="I offer the best implementation of multilingual websites and can provide the translations via specialist translators if required."
               Icon={Translate}
             />
           </List>

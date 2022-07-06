@@ -5,7 +5,6 @@ import {
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
   SET_TOAST,
-  SET_WINDOW_HEIGHT,
 } from "./types"
 
 export const setIsMobile = (payload) => ({
@@ -35,10 +34,5 @@ export const setSiteReady = (payload) => ({
 
 export const setToast = (payload) => ({
   type: SET_TOAST,
-  payload,
-})
-
-export const setWindowHeight = (payload) => ({
-  type: SET_WINDOW_HEIGHT,
   payload,
 })

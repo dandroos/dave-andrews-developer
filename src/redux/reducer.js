@@ -4,7 +4,6 @@ import {
   SET_IS_TABLET,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
-  SET_WINDOW_HEIGHT,
 } from "./types"
 
 const initialState = {
@@ -18,7 +17,6 @@ const initialState = {
     severity: "success",
     msg: "",
   },
-  windowHeight: null,
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -45,9 +43,6 @@ export const reducer = (state = initialState, { type, payload }) => {
       break
     case SET_SITE_READY:
       newState.siteReady = payload
-      break
-    case SET_WINDOW_HEIGHT:
-      newState.windowHeight = payload
       break
     default:
       break
