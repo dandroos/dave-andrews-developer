@@ -1,6 +1,7 @@
 import { CssBaseline, ThemeProvider } from "@mui/material"
 
 import { Helmet } from "react-helmet"
+import LoadingScreen from "../../src/components/LoadingScreen"
 import React from "react"
 import { theme } from "../../src/theme"
 import { typography } from "../../style"
@@ -33,6 +34,7 @@ const SiteWrapper = ({ children }) => {
       </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <LoadingScreen />
         {children}
       </ThemeProvider>
     </>

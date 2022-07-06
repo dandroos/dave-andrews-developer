@@ -39,12 +39,12 @@ export const nav = {
   external: [
     {
       label: "Twitter",
-      url: "https://twitter.com/daveandrewsdevs",
+      url: "https://twitter.com/daveandrewsdev",
       Icon: Twitter,
     },
     {
       label: "Instagram",
-      url: "https://instagram.com/daveandrewsdevs",
+      url: "https://instagram.com/daveandrewsdev",
       Icon: Instagram,
     },
   ],

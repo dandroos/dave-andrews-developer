@@ -12,10 +12,9 @@ import React, { useState } from "react"
 
 import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
-import { connect } from "react-redux"
 import { setToast } from "../redux/actions"
 
-const Contact = ({ dispatch, ready }) => {
+const Contact = ({ dispatch }) => {
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -77,113 +76,103 @@ const Contact = ({ dispatch, ready }) => {
   return (
     <>
       <Seo title="Contact" url="/contact" />
-      {ready && (
-        <PageWrapper title="Contact">
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Typography>
-                  You can send me a message by completing and submitting the
-                  below form...
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <TextField
-                  label="Name"
-                  value={fields.name}
-                  onChange={handleChange}
-                  name="name"
-                />
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <TextField
-                  label="Email"
-                  type="email"
-                  value={fields.email}
-                  onChange={handleChange}
-                  name="email"
-                />
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <TextField
-                  label="Phone"
-                  type="tel"
-                  value={fields.tel}
-                  onChange={handleChange}
-                  name="tel"
-                  required={false}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Message"
-                  multiline
-                  value={fields.message}
-                  onChange={handleChange}
-                  name="message"
-                  rows={6}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button
-                  fullWidth
-                  startIcon={<Send />}
-                  size="large"
-                  type="submit"
-                >
-                  Send
-                </Button>
-              </Grid>
+      <PageWrapper title="Contact">
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography>
+                You can send me a message by completing and submitting the below
+                form...
+              </Typography>
             </Grid>
-          </form>
-          <Box mt={3}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                You can also contact me using the following methods...
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  fullWidth
-                  sx={{ flexDirection: "column" }}
-                  href="tel:34658858572"
-                  target="_blank"
-                >
-                  <Icon sx={{ height: "1.8rem" }}>
-                    <Phone />
-                  </Icon>
-                  <ListItemText
-                    primary="Phone"
-                    secondary="+(34) 658 858 572"
-                    sx={{ textAlign: "center" }}
-                  />
-                </Button>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  fullWidth
-                  sx={{ flexDirection: "column" }}
-                  href="https://wa.me/34658858572"
-                  target="_blank"
-                >
-                  <Icon sx={{ height: "1.8rem" }}>
-                    <Whatsapp />
-                  </Icon>
-                  <ListItemText
-                    primary="WhatsApp"
-                    secondary="+(34) 658 858 572"
-                    sx={{ textAlign: "center" }}
-                  />
-                </Button>
-              </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                label="Name"
+                value={fields.name}
+                onChange={handleChange}
+                name="name"
+              />
             </Grid>
-          </Box>
-        </PageWrapper>
-      )}
+            <Grid item xs={12} md={4}>
+              <TextField
+                label="Email"
+                type="email"
+                value={fields.email}
+                onChange={handleChange}
+                name="email"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                label="Phone"
+                type="tel"
+                value={fields.tel}
+                onChange={handleChange}
+                name="tel"
+                required={false}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Message"
+                multiline
+                value={fields.message}
+                onChange={handleChange}
+                name="message"
+                rows={6}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button fullWidth startIcon={<Send />} size="large" type="submit">
+                Send
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+        <Box mt={3}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              You can also contact me using the following methods...
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                fullWidth
+                sx={{ flexDirection: "column" }}
+                href="tel:34658858572"
+                target="_blank"
+              >
+                <Icon sx={{ height: "1.8rem" }}>
+                  <Phone />
+                </Icon>
+                <ListItemText
+                  primary="Phone"
+                  secondary="+(34) 658 858 572"
+                  sx={{ textAlign: "center" }}
+                />
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                fullWidth
+                sx={{ flexDirection: "column" }}
+                href="https://wa.me/34658858572"
+                target="_blank"
+              >
+                <Icon sx={{ height: "1.8rem" }}>
+                  <Whatsapp />
+                </Icon>
+                <ListItemText
+                  primary="WhatsApp"
+                  secondary="+(34) 658 858 572"
+                  sx={{ textAlign: "center" }}
+                />
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+      </PageWrapper>
     </>
   )
 }
-const stp = (s) => ({
-  ready: s.siteReady,
-})
 
-export default connect(stp)(Contact)
+export default Contact

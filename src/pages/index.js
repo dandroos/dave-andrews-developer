@@ -19,7 +19,7 @@ import { convertToBgImage } from "gbimage-bridge"
 import { getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
-const Index = ({ isMobile, ready }) => {
+const Index = ({ isMobile }) => {
   const query = useStaticQuery(graphql`
     {
       imgDesk: file(
@@ -57,85 +57,82 @@ const Index = ({ isMobile, ready }) => {
   return (
     <>
       <Seo title="" url="" />
-      {ready && (
+      <Box
+        // height="100vh"
+        height={isMobile ? WindowHeightCalculator() : "100vh"}
+        width="100%"
+        component={BackgroundImage}
+        {...img}
+        style={{ backgroundPosition: !isMobile ? undefined : `center 0` }}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="common.white"
+      >
         <Box
-          // height="100vh"
-          height={isMobile ? WindowHeightCalculator() : "100vh"}
-          width="100%"
-          component={BackgroundImage}
-          {...img}
-          style={{ backgroundPosition: !isMobile ? undefined : `center 0` }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          color="common.white"
+          position="absolute"
+          component={motion.div}
+          initial={{ opacity: 0, translateX: "-200%" }}
+          animate={{ opacity: 1, translateX: isMobile ? "-50%" : "0%" }}
+          transition={{ delay: 0.75, duration: 1 }}
+          bottom={isMobile ? 10 : 50}
+          left={isMobile ? "50%" : 105}
+          py={2.5}
+          width={isMobile ? "90%" : "30%"}
+          boxShadow={5}
+          sx={{
+            background: `${rgbToHex(theme.palette.primary.dark)}aa`,
+            transform: isMobile ? "translateX(-50%)" : undefined,
+          }}
         >
-          <Box
-            position="absolute"
-            component={motion.div}
-            initial={{ opacity: 0, translateX: "-200%" }}
-            animate={{ opacity: 1, translateX: isMobile ? "-50%" : "0%" }}
-            transition={{ delay: 0.75, duration: 1 }}
-            bottom={isMobile ? 10 : 50}
-            left={isMobile ? "50%" : 105}
-            py={2.5}
-            width={isMobile ? "90%" : "30%"}
-            boxShadow={5}
-            sx={{
-              background: `${rgbToHex(theme.palette.primary.dark)}aa`,
-              transform: isMobile ? "translateX(-50%)" : undefined,
-            }}
-          >
-            <Container>
-              <Typography variant="h3">Hi! I'm Dave!</Typography>
-              <Typography gutterBottom>
-                I make websites and other software applications. Thanks for
-                dropping by! Make yourself at home, have a look around and let
-                me know if I can be of any assistance!
-              </Typography>
-              <Grid container spacing={1}>
-                <Grid item xs={6} md={6}>
-                  <Button
-                    endIcon={<Wrench />}
-                    fullWidth
-                    component={Link}
-                    to="/services"
-                  >
-                    My Services
-                  </Button>
-                </Grid>
-                <Grid item xs={6} md={6}>
-                  <Button
-                    endIcon={<Information />}
-                    fullWidth
-                    component={Link}
-                    to="/about"
-                  >
-                    About me
-                  </Button>
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    endIcon={<Phone />}
-                    fullWidth
-                    component={Link}
-                    to="/contact"
-                  >
-                    Contact me
-                  </Button>
-                </Grid>
+          <Container>
+            <Typography variant="h3">Hi! I'm Dave!</Typography>
+            <Typography gutterBottom>
+              I make websites and other software applications. Thanks for
+              dropping by! Make yourself at home, have a look around and let me
+              know if I can be of any assistance!
+            </Typography>
+            <Grid container spacing={1}>
+              <Grid item xs={6} md={6}>
+                <Button
+                  endIcon={<Wrench />}
+                  fullWidth
+                  component={Link}
+                  to="/services"
+                >
+                  My Services
+                </Button>
               </Grid>
-            </Container>
-          </Box>
+              <Grid item xs={6} md={6}>
+                <Button
+                  endIcon={<Information />}
+                  fullWidth
+                  component={Link}
+                  to="/about"
+                >
+                  About me
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  endIcon={<Phone />}
+                  fullWidth
+                  component={Link}
+                  to="/contact"
+                >
+                  Contact me
+                </Button>
+              </Grid>
+            </Grid>
+          </Container>
         </Box>
-      )}
+      </Box>
     </>
   )
 }
 
 const stp = (s) => ({
   isMobile: s.isMobile,
-  ready: s.siteReady,
 })
 
 export default connect(stp)(Index)

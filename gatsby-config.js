@@ -7,8 +7,8 @@ module.exports = {
     shortJobTitle: "Developer",
     description: `Dave Andrews is a professional web and application developer.`,
     lang: "en",
-    author: `@dandrewsdeveloper`,
-    siteUrl: `https://daveandrewsdevs.netlify.app/`,
+    author: `@daveandrewsdev`,
+    siteUrl: `https://daveandrews.dev/`,
   },
   plugins: [
     "gatsby-plugin-site-wrapper",
