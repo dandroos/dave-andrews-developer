@@ -36,12 +36,24 @@ export const theme = responsiveFontSizes(
     },
     breakpoints: {
       values: {
-        xl: 1536,
-        lg: 1200,
-        md: 975,
-        sm: 600,
+        mobile: 600,
+        tablet: 1100,
         xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
       },
+      // values: {
+      // xl: 1536,
+      // lg: 1300,
+      // md: 1135,
+      // // lg: 1135,
+      // // md: 975,
+      // smplus: 880,
+      // sm: 600,
+      // xs: 0,
+      // },
     },
     typography: {
       fontFamily: style.typography.fontFamily,

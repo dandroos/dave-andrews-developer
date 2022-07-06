@@ -1,23 +1,34 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { Box, Toolbar, useMediaQuery, useTheme } from "@mui/material"
 import React, { useEffect, useState } from "react"
-import { setAtTop, setIsMobile, setSiteReady } from "../redux/actions"
+import {
+  setAtTop,
+  setIsMobile,
+  setIsTablet,
+  setSiteReady,
+} from "../redux/actions"
 
 import FontFaceObserver from "fontfaceobserver"
 import Footer from "./Footer"
 import Navigation from "./Navigation"
 import Toast from "./Toast"
-import WindowHeightCalculator from "./WindowHeightCalculator"
 import { connect } from "react-redux"
 import style from "../../style"
 
 const Layout = ({ dispatch, location, children, ready }) => {
-  const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
+  const isMobile = useMediaQuery(useTheme().breakpoints.down("mobile"))
 
   useEffect(() => {
     dispatch(setIsMobile(isMobile))
     //eslint-disable-next-line
   }, [isMobile])
+
+  const isTablet = useMediaQuery(useTheme().breakpoints.down("tablet"))
+
+  useEffect(() => {
+    dispatch(setIsTablet(isTablet))
+    //eslint-disable-next-line
+  }, [isTablet])
 
   useEffect(() => {
     const loadFont = () => {
@@ -30,6 +41,7 @@ const Layout = ({ dispatch, location, children, ready }) => {
     document.addEventListener("scroll", () => {
       dispatch(setAtTop(window.scrollY === 0))
     })
+
     dispatch(setAtTop(window.scrollY === 0))
     //eslint-disable-next-line
   }, [])
@@ -43,8 +55,9 @@ const Layout = ({ dispatch, location, children, ready }) => {
       <Box
         display="flex"
         flexDirection="column"
-        minHeight={isMobile ? WindowHeightCalculator() : "100vh"}
+        minHeight={!isMobile ? "100vh" : window.innerHeight * 0.01 * 100}
         // minHeight="100vh"
+        // minHeight={`${height}px`}
         justifyContent="space-between"
         overflow="hidden"
       >
@@ -91,6 +104,7 @@ const Layout = ({ dispatch, location, children, ready }) => {
 
 const stp = (s) => ({
   ready: s.siteReady,
+  windowHeight: s.windowHeight,
 })
 
 export default connect(stp)(Layout)

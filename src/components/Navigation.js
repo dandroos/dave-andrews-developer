@@ -19,7 +19,7 @@ import { connect } from "react-redux"
 import { nav } from "../siteLinks"
 import { setShowMobileMenu } from "../redux/actions"
 
-const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
+const Navigation = ({ dispatch, isMobile, isTablet, atTop, homeLoading }) => {
   const { title, jobTitle, shortJobTitle } = useStaticQuery(graphql`
     {
       site {
@@ -36,7 +36,7 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
   const theme = useTheme()
   return (
     <>
-      {isMobile && <MobileMenu />}
+      <MobileMenu />
       <AppBar
         variant={atTop ? (homeLoading ? `outlined` : `elevation`) : `elevation`}
         elevation={atTop ? (homeLoading ? 0 : 5) : 5}
@@ -53,7 +53,7 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
         <Toolbar
           sx={{
             my: isMobile ? (atTop ? 0.5 : 0) : atTop ? 1 : 0.4,
-            mx: isMobile ? undefined : lessThanLarge ? undefined : 10,
+            mx: isMobile ? undefined : isTablet ? 2.5 : 5,
             transition: "margin .25s",
           }}
         >
@@ -93,12 +93,12 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
               // sx={{ ml: 1.25 }}
               variant="inherit"
             >
-              {isMobile ? shortJobTitle : jobTitle}
+              {lessThanLarge ? shortJobTitle : jobTitle}
             </Typography>
           </MLink>
 
           <Box flexGrow={1} />
-          {!isMobile ? (
+          {!isMobile && !isTablet ? (
             <>
               {nav.internal.map((i, ind) => (
                 <Button
@@ -110,10 +110,6 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
                   sx={{
                     textAlign: "center",
                     mr: 4,
-                    // ":hover": {
-                    //   transform: `scale(1.07)`,
-                    // },
-                    // transition: `transform .15s`,
                   }}
                   activeStyle={{ fontWeight: "bold" }}
                 >
@@ -124,10 +120,11 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
                 return (
                   <IconButton
                     key={ind}
+                    size="small"
                     color="inherit"
                     edge={ind === nav.external.length - 1 ? "end" : undefined}
                     sx={{
-                      ml: ind !== 0 ? 2 : undefined,
+                      ml: ind !== 0 ? 1.5 : undefined,
                     }}
                     href={i.url}
                     target="_blank"
@@ -154,6 +151,7 @@ const Navigation = ({ dispatch, isMobile, atTop, homeLoading }) => {
 
 const stp = (s) => ({
   isMobile: s.isMobile,
+  isTablet: s.isTablet,
   atTop: s.atTop,
 })
 

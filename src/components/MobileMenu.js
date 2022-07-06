@@ -21,13 +21,12 @@ import { StaticImage, getImage } from "gatsby-plugin-image"
 import BackgroundImage from "gatsby-background-image"
 import { Close } from "mdi-material-ui"
 import React from "react"
-import WindowHeightCalculator from "./WindowHeightCalculator"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { nav } from "../siteLinks"
 import { setShowMobileMenu } from "../redux/actions"
 
-const MobileMenu = ({ dispatch, isOpen }) => {
+const MobileMenu = ({ dispatch, isOpen, isTablet }) => {
   const data = useStaticQuery(graphql`
     {
       title: site {
@@ -36,7 +35,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
           jobTitle
         }
       }
-      img: file(sourceInstanceName: { eq: "images" }, name: { eq: "dave1" }) {
+      img: file(sourceInstanceName: { eq: "images" }, name: { eq: "dave6" }) {
         childImageSharp {
           gatsbyImageData(
             placeholder: BLURRED
@@ -71,7 +70,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
         <Box
           display="flex"
           flexDirection="column"
-          minHeight={WindowHeightCalculator()}
+          minHeight={window.innerHeight * 0.01 * 100}
           justifyContent="space-between"
           // pb={6}
         >
@@ -113,7 +112,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
                       {title}
                       <Typography
                         variant="inherit"
-                        color="primary.light"
+                        color="secondary.light"
                         display="block"
                       >
                         {jobTitle}
@@ -195,6 +194,7 @@ const MobileMenu = ({ dispatch, isOpen }) => {
 
 const stp = (s) => ({
   isOpen: s.showMobileMenu,
+  isTablet: s.isTablet,
 })
 
 export default connect(stp)(MobileMenu)

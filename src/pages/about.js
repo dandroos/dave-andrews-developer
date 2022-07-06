@@ -7,7 +7,6 @@ import PageWrapper from "../components/PageWrapper"
 import React from "react"
 import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
-import moment from "moment"
 
 const About = () => {
   return (

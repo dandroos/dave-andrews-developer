@@ -1,12 +1,15 @@
 import {
   SET_AT_TOP,
   SET_IS_MOBILE,
+  SET_IS_TABLET,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
+  SET_WINDOW_HEIGHT,
 } from "./types"
 
 const initialState = {
   isMobile: null,
+  isTablet: null,
   showMobileMenu: false, //change to false
   atTop: null,
   siteReady: false,
@@ -15,6 +18,7 @@ const initialState = {
     severity: "success",
     msg: "",
   },
+  windowHeight: null,
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -22,10 +26,16 @@ export const reducer = (state = initialState, { type, payload }) => {
 
   //DEBUGGING
   // console.log(type, payload)
+  // console.log(state)
 
   switch (type) {
     case SET_IS_MOBILE:
       newState.isMobile = payload
+      break
+    case SET_IS_TABLET:
+      if (!newState.isMobile) {
+        newState.isTablet = payload
+      }
       break
     case SET_SHOW_MOBILE_MENU:
       newState.showMobileMenu = payload
@@ -35,6 +45,9 @@ export const reducer = (state = initialState, { type, payload }) => {
       break
     case SET_SITE_READY:
       newState.siteReady = payload
+      break
+    case SET_WINDOW_HEIGHT:
+      newState.windowHeight = payload
       break
     default:
       break

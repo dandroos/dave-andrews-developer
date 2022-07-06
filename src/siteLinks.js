@@ -1,4 +1,5 @@
 import {
+  Facebook,
   Home,
   Information,
   Instagram,
@@ -21,7 +22,7 @@ export const nav = {
       Icon: Wrench,
     },
     {
-      label: "About me",
+      label: "About",
       url: "/about",
       Icon: Information,
     },
@@ -37,6 +38,11 @@ export const nav = {
     },
   ],
   external: [
+    {
+      label: "Facebook",
+      url: "https://facebook.com/daveandrewsdev",
+      Icon: Facebook,
+    },
     {
       label: "Twitter",
       url: "https://twitter.com/daveandrewsdev",
