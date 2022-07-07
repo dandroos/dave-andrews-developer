@@ -12,6 +12,7 @@ import React, { useState } from "react"
 
 import PageWrapper from "../components/PageWrapper"
 import Seo from "../components/seo"
+import { connect } from "react-redux"
 import { setToast } from "../redux/actions"
 
 const Contact = ({ dispatch }) => {
@@ -175,4 +176,4 @@ const Contact = ({ dispatch }) => {
   )
 }
 
-export default Contact
+export default connect()(Contact)
