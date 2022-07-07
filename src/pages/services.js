@@ -73,8 +73,8 @@ const Services = () => {
           </Typography>
           <Typography paragraph>
             As I am primarily a web developer, I am proficient with{" "}
-            <strong>HTML5</strong>, <strong>CSS</strong> and{" "}
-            <strong>Javascript</strong> (the holy trinity for web development!).
+            <strong>HTML5</strong>, <strong>CSS3</strong> and{" "}
+            <strong>JavaScript</strong> (the holy trinity for web development!).
             I am also an expert in <strong>React</strong>,{" "}
             <strong>Gatsby</strong> and <strong>Next</strong> which are the main
             frameworks/solutions I normally use to create websites and
