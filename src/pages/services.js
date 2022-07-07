@@ -94,8 +94,8 @@ const Services = () => {
               Icon={Flash}
             />
             <Feature
-              primary="Scaleable"
-              secondary="I use scaleable technologies so that your website can grow in sync with your business."
+              primary="Scalable"
+              secondary="I use scalable technologies so that your website can grow in sync with your business."
               Icon={Resize}
             />
             <Feature
