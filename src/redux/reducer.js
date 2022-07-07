@@ -46,7 +46,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       newState.siteReady = payload
       break
     case SET_TOAST:
-      newState.siteReady = payload
+      newState.toast = payload
       break
     default:
       break
