@@ -4,6 +4,7 @@ import {
   SET_IS_TABLET,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
+  SET_TOAST,
 } from "./types"
 
 const initialState = {
@@ -42,6 +43,9 @@ export const reducer = (state = initialState, { type, payload }) => {
       newState.atTop = payload
       break
     case SET_SITE_READY:
+      newState.siteReady = payload
+      break
+    case SET_TOAST:
       newState.siteReady = payload
       break
     default:
