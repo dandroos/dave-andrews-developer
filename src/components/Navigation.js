@@ -90,7 +90,6 @@ const Navigation = ({ dispatch, isMobile, isTablet, atTop, homeLoading }) => {
                   ? "secondary.light"
                   : "text.secondary"
               }
-              // sx={{ ml: 1.25 }}
               variant="inherit"
             >
               {lessThanLarge ? shortJobTitle : jobTitle}

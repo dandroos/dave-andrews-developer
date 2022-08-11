@@ -44,16 +44,6 @@ export const theme = responsiveFontSizes(
         lg: 1200,
         xl: 1536,
       },
-      // values: {
-      // xl: 1536,
-      // lg: 1300,
-      // md: 1135,
-      // // lg: 1135,
-      // // md: 975,
-      // smplus: 880,
-      // sm: 600,
-      // xs: 0,
-      // },
     },
     typography: {
       fontFamily: style.typography.fontFamily,
@@ -69,12 +59,6 @@ export const theme = responsiveFontSizes(
         },
         fontSize: "1.15rem",
       },
-      // nav: {
-      //   fontSize: "1.1rem",
-      //   lineHeight: 1,
-      //   textTransform: "uppercase",
-      //   letterSpacing: 1.5,
-      // },
     },
     components: {
       MuiToolbar: {

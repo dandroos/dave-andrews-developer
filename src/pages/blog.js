@@ -1,15 +1,14 @@
 import { Box, Typography } from "@mui/material"
 
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import React from "react"
-import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
 import { connect } from "react-redux"
 
 const Blog = ({ isMobile }) => {
   return (
     <>
-      <Seo title="Blog" url="/blog" />
       <PageWrapper title="Blog">
         {isMobile ? (
           <StaticImage
@@ -55,3 +54,5 @@ const stp = (s) => ({
   isMobile: s.isMobile,
 })
 export default connect(stp)(Blog)
+
+export const Head = () => <HeadComponent title="Blog" url="/blog" />

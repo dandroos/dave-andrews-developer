@@ -56,8 +56,6 @@ const Layout = ({ dispatch, location, children, ready }) => {
         display="flex"
         flexDirection="column"
         minHeight={!isMobile ? "100vh" : window.innerHeight * 0.01 * 100}
-        // minHeight="100vh"
-        // minHeight={`${height}px`}
         justifyContent="space-between"
         overflow="hidden"
       >

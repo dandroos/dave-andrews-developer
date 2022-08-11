@@ -12,8 +12,8 @@ import { Information, Phone, Wrench } from "mdi-material-ui"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import BackgroundImage from "gatsby-background-image"
+import HeadComponent from "../components/Head"
 import React from "react"
-import Seo from "../components/seo"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { getImage } from "gatsby-plugin-image"
@@ -58,7 +58,6 @@ const Index = ({ isMobile, isTablet }) => {
   )
   return (
     <>
-      <Seo title="" url="" />
       <Box
         height={
           !isMobile
@@ -70,7 +69,6 @@ const Index = ({ isMobile, isTablet }) => {
         width="100%"
         component={BackgroundImage}
         {...img}
-        // style={{ backgroundPosition: !isMobile ? undefined : `center 0` }}
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -146,3 +144,5 @@ const stp = (s) => ({
 })
 
 export default connect(stp)(Index)
+
+export const Head = () => <HeadComponent />

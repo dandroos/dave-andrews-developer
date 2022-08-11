@@ -20,10 +20,10 @@ import {
   Translate,
 } from "mdi-material-ui"
 
+import HeadComponent from "../components/Head"
 import { Link } from "gatsby"
 import PageWrapper from "../components/PageWrapper"
 import React from "react"
-import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
 
 const Services = () => {
@@ -53,7 +53,6 @@ const Services = () => {
   )
   return (
     <>
-      <Seo title="Services" url="/services" />
       <PageWrapper title="Services">
         <StaticImage
           src="../images/dave2.jpg"
@@ -149,3 +148,5 @@ const Services = () => {
 }
 
 export default Services
+
+export const Head = () => <HeadComponent title="Services" url="/services" />

@@ -1,10 +1,8 @@
 import { CssBaseline, ThemeProvider } from "@mui/material"
 
-import { Helmet } from "react-helmet"
 import LoadingScreen from "../../src/components/LoadingScreen"
 import React from "react"
 import { theme } from "../../src/theme"
-import { typography } from "../../style"
 
 const SiteWrapper = ({ children }) => {
   return (
@@ -22,7 +20,7 @@ const SiteWrapper = ({ children }) => {
         <input type="hidden" name="tel" />
         <input type="hidden" name="message" />
       </form>
-      <Helmet>
+      {/* <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -31,7 +29,7 @@ const SiteWrapper = ({ children }) => {
             .join("+")}&display=swap`}
           rel="stylesheet"
         ></link>
-      </Helmet>
+      </Helmet> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <LoadingScreen />

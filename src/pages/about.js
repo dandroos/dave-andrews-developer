@@ -3,15 +3,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Box, Grid, Typography } from "@mui/material"
 
 import { Carousel } from "react-responsive-carousel"
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import React from "react"
-import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
   return (
     <>
-      <Seo title="About me" url="/about" />
       <PageWrapper title="About me">
         <Grid container spacing={2}>
           <Grid item xs={12} md={7}>
@@ -98,3 +97,5 @@ const About = () => {
   )
 }
 export default About
+
+export const Head = () => <HeadComponent title="About me" url="/about" />

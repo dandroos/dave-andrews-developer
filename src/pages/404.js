@@ -1,12 +1,11 @@
 import * as React from "react"
 
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
-import Seo from "../components/seo"
 import { Typography } from "@mui/material"
 
 const NotFoundPage = () => (
   <PageWrapper title="No page here!">
-    <Seo title="404: Not found" />
     <Typography>
       This isn't the page you're looking for! Try a different link.
     </Typography>
@@ -14,3 +13,5 @@ const NotFoundPage = () => (
 )
 
 export default NotFoundPage
+
+export const Head = () => <HeadComponent title="404" />

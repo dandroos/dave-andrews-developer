@@ -12,8 +12,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-site-wrapper",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-emotion",
+    "gatsby-plugin-mui-emotion",
     "gatsby-plugin-redux",
     `gatsby-plugin-netlify`,
     `gatsby-plugin-image`,
@@ -92,8 +91,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-material-ui-starter`,
-        short_name: `gatsby-starter`,
+        name: `dave-andrews-developer`,
+        short_name: `dave-andrews`,
         start_url: `/`,
         background_color: style.palette.main,
         // This will impact how browsers show your PWA/website

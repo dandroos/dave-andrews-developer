@@ -10,8 +10,8 @@ import {
 import { Phone, Send, Whatsapp } from "mdi-material-ui"
 import React, { useState } from "react"
 
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
-import Seo from "../components/seo"
 import { connect } from "react-redux"
 import { setToast } from "../redux/actions"
 
@@ -76,7 +76,6 @@ const Contact = ({ dispatch }) => {
   }
   return (
     <>
-      <Seo title="Contact" url="/contact" />
       <PageWrapper title="Contact">
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -177,3 +176,5 @@ const Contact = ({ dispatch }) => {
 }
 
 export default connect()(Contact)
+
+export const Head = () => <HeadComponent title="Contact" url="/contact" />

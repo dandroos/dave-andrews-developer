@@ -10,11 +10,11 @@ import {
 const initialState = {
   isMobile: null,
   isTablet: null,
-  showMobileMenu: false, //change to false
+  showMobileMenu: false,
   atTop: null,
   siteReady: false,
   toast: {
-    open: false, //change to false
+    open: false,
     severity: "success",
     msg: "",
   },
@@ -25,7 +25,6 @@ export const reducer = (state = initialState, { type, payload }) => {
 
   //DEBUGGING
   // console.log(type, payload)
-  // console.log(state)
 
   switch (type) {
     case SET_IS_MOBILE:

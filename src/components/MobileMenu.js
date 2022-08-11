@@ -72,7 +72,6 @@ const MobileMenu = ({ dispatch, isOpen, isTablet }) => {
           flexDirection="column"
           minHeight={window.innerHeight * 0.01 * 100}
           justifyContent="space-between"
-          // pb={6}
         >
           <Box
             display="flex"
@@ -97,7 +96,6 @@ const MobileMenu = ({ dispatch, isOpen, isTablet }) => {
                     alt="Dave Andrews logo"
                     width={50}
                     placeholder="blurred"
-                    // width="100%"
                   />
                   <Box ml={1}>
                     <MLink
